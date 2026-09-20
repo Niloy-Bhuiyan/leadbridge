@@ -1,5 +1,9 @@
 # LeadBridge
 
+[![CI](https://github.com/Niloy-Bhuiyan/leadbridge/actions/workflows/ci.yml/badge.svg)](https://github.com/Niloy-Bhuiyan/leadbridge/actions/workflows/ci.yml)
+[![Python 3.11 | 3.12](https://img.shields.io/badge/python-3.11%20%7C%203.12-blue)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
+
 **Lead intake, AI triage, CRM upsert and technical SEO audit — orchestrated in n8n, with the logic in a tested Python service.**
 
 An agency receives an enquiry. Something has to clean it up, decide whether it has
