@@ -1,0 +1,52 @@
+name: leadbridge
+
+services:
+  service:
+    build: ./service
+    environment:
+      ENVIRONMENT: local
+      DATABASE_PATH: /data/leadbridge.db
+      INGEST_SECRET: ${INGEST_SECRET:-}
+      LLM_PROVIDER: ${LLM_PROVIDER:-auto}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      ANTHROPIC_MODEL: ${ANTHROPIC_MODEL:-claude-sonnet-5}
+      CRM_PROVIDER: ${CRM_PROVIDER:-auto}
+      HUBSPOT_TOKEN: ${HUBSPOT_TOKEN:-}
+      PAGESPEED_API_KEY: ${PAGESPEED_API_KEY:-}
+    volumes:
+      - service_data:/data
+    # Bound to loopback. The service holds the HubSpot token, so it must not
+    # be reachable from the network just because n8n needs to reach it --
+    # n8n reaches it over the compose network instead.
+    ports:
+      - "127.0.0.1:8000:8000"
+    restart: unless-stopped
+
+  n8n:
+    image: docker.n8n.io/n8nio/n8n:latest
+    depends_on:
+      service:
+        condition: service_healthy
+    environment:
+      N8N_PORT: 5678
+      N8N_SECURE_COOKIE: "false"
+      GENERIC_TIMEZONE: Asia/Dhaka
+      TZ: Asia/Dhaka
+      # Exposed to workflow expressions as $env.*
+      LEADBRIDGE_URL: http://service:8000
+      INGEST_SECRET: ${INGEST_SECRET:-}
+      AUDIT_SITES: ${AUDIT_SITES:-}
+      ALERT_WEBHOOK_URL: ${ALERT_WEBHOOK_URL:-}
+      N8N_BLOCK_ENV_ACCESS_IN_NODE: "false"
+    volumes:
+      - n8n_data:/home/node/.n8n
+      # Workflow JSON is mounted read-only for import; n8n owns its own copy
+      # once imported, and the repo stays the source of truth for the file.
+      - ./workflows:/workflows:ro
+    ports:
+      - "127.0.0.1:5678:5678"
+    restart: unless-stopped
+
+volumes:
+  service_data:
+  n8n_data:

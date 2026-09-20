@@ -1,0 +1,32 @@
+# Secrets. Never commit.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Local database and run log
+*.db
+*.db-wal
+*.db-shm
+/data/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+
+# n8n local state, if anyone runs it outside Docker
+.n8n/
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
