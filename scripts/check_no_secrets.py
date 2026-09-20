@@ -14,6 +14,7 @@ Run locally:  python scripts/check_no_secrets.py
 """
 
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -46,8 +47,35 @@ PATTERNS = [
 ]
 
 
+def tracked_files() -> list[Path] | None:
+    """Ask git what is actually tracked.
+
+    Scanning the working tree is the wrong question. A real `.env` holding a
+    real token is correct and expected -- it is gitignored. Flagging it
+    teaches the reader to ignore this script, which is how the one genuine
+    finding later gets waved through. What matters is what git would publish.
+    """
+    try:
+        result = subprocess.run(
+            ["git", "ls-files", "-z"],
+            cwd=ROOT,
+            capture_output=True,
+            check=True,
+            text=True,
+        )
+    except (OSError, subprocess.CalledProcessError):
+        return None
+    return [ROOT / name for name in result.stdout.split("\0") if name]
+
+
 def iter_files():
-    for path in ROOT.rglob("*"):
+    candidates = tracked_files()
+    if candidates is None:
+        # Not a git checkout (a release tarball, say). Fall back to walking
+        # the tree, minus the directories that never hold source.
+        candidates = [p for p in ROOT.rglob("*") if p.is_file()]
+
+    for path in candidates:
         if not path.is_file():
             continue
         if any(part in SKIP_DIRS for part in path.parts):

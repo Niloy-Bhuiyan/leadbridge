@@ -13,8 +13,15 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
+    # Both locations are searched, later entries winning. Under Docker the
+    # working directory is the service root; run natively, uvicorn is
+    # started from service/ while .env sits beside docker-compose.yml one
+    # level up. Looking in one place only breaks whichever path is not the
+    # one the author happened to test.
     model_config = SettingsConfigDict(
-        env_file=".env", env_file_encoding="utf-8", extra="ignore"
+        env_file=(".env", "../.env"),
+        env_file_encoding="utf-8",
+        extra="ignore",
     )
 
     # --- service ----------------------------------------------------------

@@ -3,6 +3,21 @@ import os
 import pytest
 
 
+@pytest.fixture(autouse=True)
+def no_local_credentials(monkeypatch):
+    """Make the suite hermetic.
+
+    Settings reads a real .env, so a developer with working credentials
+    would run a different test suite from CI -- and the difference shows up
+    as a test that passes on one machine and fails on the other. Every
+    credential is blanked for every test; the ones that want a key set it
+    explicitly on their own Settings instance.
+    """
+    for name in ("HUBSPOT_TOKEN", "ANTHROPIC_API_KEY", "PAGESPEED_API_KEY",
+                 "INGEST_SECRET"):
+        monkeypatch.setenv(name, "")
+
+
 @pytest.fixture
 def offline_env(tmp_path, monkeypatch):
     """Force the fully offline configuration: mock LLM, mock CRM, temp DB."""

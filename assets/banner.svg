@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 370" width="1200" height="370" role="img" aria-label="LeadBridge - lead intake, AI triage, CRM upsert and technical SEO audit, orchestrated in n8n">
+  <title>LeadBridge</title>
+  <desc>Lead intake, AI triage, CRM upsert and technical SEO audit, orchestrated in n8n with the logic in a tested Python service.</desc>
+
+  <!--
+    Every element below is fully visible with its static attributes alone.
+    The <animate> tags only move things that are already there. A reader
+    whose client does not run SMIL - GitHub's mobile app, a proxy that
+    rasterises, a print stylesheet - sees the finished frame, not a blank
+    box. Animation enhances; it never reveals.
+  -->
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"   stop-color="#0A1020"/>
+      <stop offset="55%"  stop-color="#111A33"/>
+      <stop offset="100%" stop-color="#0D1428"/>
+    </linearGradient>
+
+    <linearGradient id="title" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#5EEAD4"/>
+      <stop offset="45%"  stop-color="#60A5FA"/>
+      <stop offset="100%" stop-color="#A78BFA"/>
+      <animate attributeName="x1" values="0;0.45;0" dur="9s" repeatCount="indefinite"/>
+      <animate attributeName="x2" values="1;1.45;1" dur="9s" repeatCount="indefinite"/>
+    </linearGradient>
+
+    <linearGradient id="wire" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#1E3A5F" stop-opacity="0"/>
+      <stop offset="22%"  stop-color="#38BDF8" stop-opacity="0.9"/>
+      <stop offset="78%"  stop-color="#A78BFA" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#1E3A5F" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="rule" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#5EEAD4"/>
+      <stop offset="100%" stop-color="#A78BFA" stop-opacity="0.15"/>
+    </linearGradient>
+
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%"   stop-color="#38BDF8" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#38BDF8" stop-opacity="0"/>
+    </radialGradient>
+
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0 L0 0 0 40" fill="none" stroke="#1B2947" stroke-width="1"/>
+    </pattern>
+
+    <filter id="soft" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="5"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="370" rx="18" fill="url(#bg)"/>
+  <rect width="1200" height="370" rx="18" fill="url(#grid)" opacity="0.45"/>
+
+  <!-- ambient drift -->
+  <circle cx="220" cy="95" r="160" fill="url(#glow)">
+    <animate attributeName="cx" values="220;430;220" dur="19s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.55;0.95;0.55" dur="7s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="985" cy="285" r="175" fill="url(#glow)" opacity="0.45">
+    <animate attributeName="cx" values="985;800;985" dur="23s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.3;0.65;0.3" dur="9s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- wordmark -->
+  <text x="70" y="126"
+        font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+        font-size="72" font-weight="800" letter-spacing="-2.5" fill="url(#title)">LeadBridge</text>
+
+  <!-- underline: full width statically, sweeps on load -->
+  <rect x="72" y="144" width="386" height="4" rx="2" fill="url(#rule)">
+    <animate attributeName="width" values="0;386" dur="1.4s" fill="freeze"
+             calcMode="spline" keyTimes="0;1" keySplines="0.16 1 0.3 1"/>
+  </rect>
+
+  <text x="72" y="184"
+        font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+        font-size="21" font-weight="500" fill="#94A3B8">
+    Lead intake &#183; AI triage &#183; CRM upsert &#183; technical SEO audit
+    <animate attributeName="opacity" values="0;1" dur="0.9s" begin="0.5s" fill="freeze"/>
+  </text>
+
+  <text x="72" y="212"
+        font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="14.5" fill="#5EEAD4" opacity="0.95">
+    orchestrated in n8n &#8212; logic in a tested Python service
+    <animate attributeName="opacity" values="0;0.95" dur="0.9s" begin="0.85s" fill="freeze"/>
+  </text>
+
+  <!-- tech chips -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.5">
+    <g>
+      <rect x="70" y="238" width="52" height="30" rx="15" fill="#132043" stroke="#F472B6" stroke-width="1.2" opacity="0.95"/>
+      <text x="96" y="257" fill="#F9A8D4" text-anchor="middle">n8n</text>
+    </g>
+    <g>
+      <rect x="132" y="238" width="112" height="30" rx="15" fill="#171640" stroke="#A78BFA" stroke-width="1.2" opacity="0.95"/>
+      <text x="188" y="257" fill="#C4B5FD" text-anchor="middle">HubSpot CRM</text>
+    </g>
+    <g>
+      <rect x="254" y="238" width="82" height="30" rx="15" fill="#0F2A24" stroke="#34D399" stroke-width="1.2" opacity="0.95"/>
+      <text x="295" y="257" fill="#6EE7B7" text-anchor="middle">FastAPI</text>
+    </g>
+    <g>
+      <rect x="346" y="238" width="150" height="30" rx="15" fill="#132043" stroke="#38BDF8" stroke-width="1.2" opacity="0.95"/>
+      <text x="421" y="257" fill="#7DD3FC" text-anchor="middle">PageSpeed Insights</text>
+    </g>
+    <g>
+      <rect x="506" y="238" width="112" height="30" rx="15" fill="#1A2436" stroke="#64748B" stroke-width="1.2" opacity="0.95"/>
+      <text x="562" y="257" fill="#CBD5E1" text-anchor="middle">127 tests</text>
+    </g>
+  </g>
+
+  <!-- live pipeline motif -->
+  <g transform="translate(70,312)">
+    <path d="M0 0 H1060" stroke="#1E2B4A" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path d="M0 0 H1060" stroke="url(#wire)" stroke-width="3" stroke-linecap="round" fill="none"
+          stroke-dasharray="190 870">
+      <animate attributeName="stroke-dashoffset" values="1060;-190" dur="4.5s" repeatCount="indefinite"/>
+    </path>
+
+    <g fill="#132043" stroke="#38BDF8" stroke-width="2.5">
+      <circle cx="0"    cy="0" r="7"><animate attributeName="fill" values="#132043;#38BDF8;#132043" dur="4.5s" begin="0s"    repeatCount="indefinite"/></circle>
+      <circle cx="212"  cy="0" r="7"><animate attributeName="fill" values="#132043;#38BDF8;#132043" dur="4.5s" begin="0.75s" repeatCount="indefinite"/></circle>
+      <circle cx="424"  cy="0" r="7"><animate attributeName="fill" values="#132043;#38BDF8;#132043" dur="4.5s" begin="1.5s"  repeatCount="indefinite"/></circle>
+      <circle cx="636"  cy="0" r="7"><animate attributeName="fill" values="#132043;#60A5FA;#132043" dur="4.5s" begin="2.25s" repeatCount="indefinite"/></circle>
+      <circle cx="848"  cy="0" r="7"><animate attributeName="fill" values="#132043;#A78BFA;#132043" dur="4.5s" begin="3s"    repeatCount="indefinite"/></circle>
+      <circle cx="1060" cy="0" r="7"><animate attributeName="fill" values="#132043;#A78BFA;#132043" dur="4.5s" begin="3.75s" repeatCount="indefinite"/></circle>
+    </g>
+
+    <circle r="5.5" fill="#5EEAD4" filter="url(#soft)">
+      <animateMotion dur="4.5s" repeatCount="indefinite" path="M0 0 H1060"/>
+    </circle>
+    <circle r="3.5" fill="#F0FDFA">
+      <animateMotion dur="4.5s" repeatCount="indefinite" path="M0 0 H1060"/>
+    </circle>
+
+    <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#64748B" text-anchor="middle">
+      <text x="0"    y="26">webhook</text>
+      <text x="212"  y="26">normalize</text>
+      <text x="424"  y="26">dedupe</text>
+      <text x="636"  y="26">classify</text>
+      <text x="848"  y="26">crm</text>
+      <text x="1060" y="26">seo audit</text>
+    </g>
+  </g>
+</svg>
